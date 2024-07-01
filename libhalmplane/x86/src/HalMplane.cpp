@@ -5,9 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#include "MplaneAlarms.h"
+#include "HalMplane.h"
 
-int halmplane_registerOranAlarmCallback(halmplane_oran_alarm_cb_t callback) {
+int halmplane_init()
+{
     return 0;
-    // TODO
+}
+
+int halmplane_exit()
+{
+    return 0;
 }

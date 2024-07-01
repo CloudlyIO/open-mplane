@@ -13,7 +13,7 @@ S = "${WORKDIR}/libhalmplane"
 inherit cmake
 
 # set this as appropriate
-BUILD_BOARD ?= "example"
+BUILD_BOARD ?= "x86"
 
 EXTRA_OECMAKE_append += " -DBUILD_BOARD=${BUILD_BOARD}"
 EXTRA_OECMAKE_append += " -DCONTEXT=YOCTO"

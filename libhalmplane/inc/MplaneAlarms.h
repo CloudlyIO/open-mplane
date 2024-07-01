@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#ifndef __MPLANE_ALARMS_H__
-#define __MPLANE_ALARMS_H__
+#ifndef __MPLANE_ALARMS_HPP__
+#define __MPLANE_ALARMS_HPP__
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -43,7 +43,6 @@ typedef struct halmplane_oran_alarm_s {
 
 typedef void (*halmplane_oran_alarm_cb_t)(
     const halmplane_oran_alarm_t* alarm, void* store);
-
-int halmplane_registerOranAlarmCallback(halmplane_oran_alarm_cb_t callback);
-
+extern "C" int halmplane_registerOranAlarmCallback(halmplane_oran_alarm_cb_t callback);
+extern "C" void message();
 #endif // __MPLANE_ALARMS_H__
