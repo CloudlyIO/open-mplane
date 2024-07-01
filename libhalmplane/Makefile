@@ -3,7 +3,7 @@ all: clean build install
 
 build/%:
 	-mkdir build; \
-	cd build && cmake .. -DCONTEXT=STANDALONE -DBUILD=$* && $(MAKE)
+	cd build && cmake .. -DCONTEXT=YOCTO -DBUILD_BOARD=example -DBUILD=$* && $(MAKE)
 
 install/%: build/%
 	cd build && sudo $(MAKE) install
