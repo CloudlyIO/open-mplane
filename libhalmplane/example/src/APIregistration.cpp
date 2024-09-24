@@ -15,7 +15,7 @@ extern "C"
     registered_functions = new std::map<std::string, void*>();
 
     //Halmplane 
-    (*registered_functions)["int (*halmplane_init)()"] = (void*) halmplane_init;
+    (*registered_functions)["int (*halmplane_init)(std::string)"] = (void*) halmplane_init;
     (*registered_functions)["int (*halmplane_exit)()"] = (void*) halmplane_exit; 
     
     //MplaneInterface

@@ -7,50 +7,37 @@ using namespace tinyxml2;
 const char* configured_libname = NULL;
 Hal_Loader* hal_loader = NULL;
 
-int wrapper_halmplane_init()
+
+int halmplane_init(std::string path)
 {
-    // std::cout << "wrapperhalmplane_init loading...." << std::endl;
-    XMLDocument doc;
-    if (doc.LoadFile("./usr/share/mplane-server/YangConfig.xml") != XML_SUCCESS) {
-        std::cerr << "Failed to load XML file!" << std::endl;
-        return -1;
-    }
-
-    // Navigate to the module-libhalmplane element
-    XMLElement* module = doc.FirstChildElement("root")->FirstChildElement("modular");
-    if (module) {
-        // Get the file element
-        const char* filename = module->FirstChildElement("file")->Attribute("value");
-        if (filename) {
-            std::cout << "Extracted filename: " << filename << std::endl;
-        } else {
-            std::cout << "Filename attribute not found!" << std::endl;
-        }
-    } else {
-        std::cout << "module-libhalmplane element not found!" << std::endl;
-    }
-
-    if(configured_libname == NULL)
-    {
-      configured_libname = "/lib/libhalmplane-mod-example.so.1.1.0";
-      hal_loader = new Hal_Loader(configured_libname);
-
-      // std::cout << "wrapperhalmplane_init loaded successfully" << std::endl;
-    }  
-    return 0;
-}
-
-int halmplane_init()
-{
-  capture_source_as_str(int (*halmplane_init)(), ftag);
-  // std::cout << "halmplane_init() of wrapper" << std::endl;
-  halmplane_init = (int (*)()) hal_loader->get_function("int (*halmplane_init)()");
-  if(halmplane_init)
-  {
-    std::cout << "wrapper" << std::endl;
-    int result = halmplane_init();
-    return result;
+  std::cout <<"wrapper halmplane init for extraction" << std::endl;
+  XMLDocument doc;
+  const char* libname = NULL;
+  if (doc.LoadFile(path.c_str()) != XML_SUCCESS) {
+      std::cerr << "Failed to load XML file!" << std::endl;
+      return -1;
   }
+  // Navigate to the module-libhalmplane element
+  XMLElement* module = doc.FirstChildElement("root")->FirstChildElement("modular");
+  if (module) 
+  {
+      // Get the file element
+    libname = module->FirstChildElement("file")->Attribute("value");
+    if (!libname) 
+    {
+        std::cerr << "Filename attribute not found!" << std::endl;
+    }
+  } 
+  else 
+  {
+    std::cerr <<  "modular element not found!" << std::endl;
+  }
+  
+  if(configured_libname == NULL)
+  {
+    configured_libname = libname;
+    hal_loader = new Hal_Loader(configured_libname);
+  } 
 
   return 0;
 }
@@ -648,7 +635,7 @@ int halmplane_registerOranAlarmCallback(halmplane_oran_alarm_cb_t callback)
 {
   capture_source_as_str(
   int (*halmplane_registerOranAlarmCallback)(halmplane_oran_alarm_cb_t), ftag);
-  
+ 
   halmplane_registerOranAlarmCallback = (int (*)
   (halmplane_oran_alarm_cb_t))hal_loader->get_function(ftag);
 
@@ -788,7 +775,7 @@ capture_source_as_str(
   return 0;
 }
 
-const halmplane_oran_perf_meas_cb_t _get_perf_meas_cb_ptr(void)
+const halmplane_oran_perf_meas_cb_t get_perf_meas_cb_ptr(void)
 {
 capture_source_as_str(
   const halmplane_oran_perf_meas_cb_t (*get_perf_meas_cb_ptr)(void), ftag);
@@ -1618,9 +1605,4 @@ int halmplane_get_port_transceivers(port_transceivers_t* transceivers)
     std::cout <<"function does not exist." << std::endl;
   }
   return NONE; 
-}
-
-void wrapperhalmplane_exit()
-{
-  hal_loader->Hal_close();
 }

@@ -9,7 +9,7 @@
 #include <iostream>
 
 
-int halmplane_init()
+int halmplane_init(std::string path)
 {
     std::cout << "Halmplane initializing...." <<std::endl;
     return 0;

@@ -103,7 +103,7 @@
   </module-o-ran-processing-element>
 
   <modular>
-    <file value="libhalmplane-mod-example-1.1.0.so" />
+    <file value="/usr/lib/libhalmplane-mod-example.so.1.1.0" />
   </modular>
 
 </root>

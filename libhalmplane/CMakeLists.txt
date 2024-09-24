@@ -102,14 +102,14 @@ elseif( "${CONTEXT}" STREQUAL "YOCTO")
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
   )
   
-  find_library(DL dl)
+  # find_library(DL dl)
   find_library(TINYXML2 tinyxml2)
 
   install(TARGETS halmplane
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   )
   target_link_libraries(halmplane
-  ${DL}
+  # ${DL}
   ${TINYXML2}
   )
 elseif( "${CONTEXT}" STREQUAL "MODULE")

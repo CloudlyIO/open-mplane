@@ -40,9 +40,6 @@ extern "C"
   void* function_map();
 };
 
-int wrapper_halmplane_init();
-void wrapper_halmplane_exit();
-
 // // //HalMplane
 // int _halmplane_init();
 // int _halmplane_exit();

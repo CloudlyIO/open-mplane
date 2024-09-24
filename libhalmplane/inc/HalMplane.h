@@ -8,12 +8,14 @@
 #ifndef __HAL_MPLANE_H__
 #define __HAL_MPLANE_H__
 
+#include <string>
+
 /**
  * @brief HAl init function, to be called before YANG handlers initialization.
  *
  * @return 0 if successful, 1 otherwise
  */
-int halmplane_init();
+int halmplane_init(std::string path);
 
 /**
  * @brief HAl exit function, to be called when application exits.
