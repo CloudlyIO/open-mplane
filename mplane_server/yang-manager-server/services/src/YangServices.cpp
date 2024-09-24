@@ -36,9 +36,9 @@
 
 #include <HalMplane.h>
 
-#include "wrapper.h"
-// #include "hal_loader.h"
-#include "test_wrapper.h"
+// #include "wrapper.h"
+// // #include "hal_loader.h"
+// #include "test_wrapper.h"
 
 using namespace Mplane;
 
@@ -47,25 +47,25 @@ using namespace Mplane;
 //=============================================================================================================
 
 //-------------------------------------------------------------------------------------------------------------
-void test_wrapper_of_libhalmplane()
-{
-	test_MplaneInterfaces();
-	test_MplaneProcessingElement();	
-	test_MplaneUplaneConf();
-	test_MplaneAlarms();
-	test_MplaneEcpri();
-	test_MplaneExternalio();
-	test_MplanePerformanceMgmt();
-	test_MplaneHardwae();
-	test_MplaneFan();
-	test_MplaneAntennaCalibration();
-	test_MplaneAld();
-	test_MplaneSync();
-	test_MplaneDelayMgmt();
-	test_MplaneModuleCapability();
-	test_MplaneSupervision();
-	test_MplaneTransceiver();
-}
+// void test_wrapper_of_libhalmplane()
+// {
+// 	test_MplaneInterfaces();
+// 	test_MplaneProcessingElement();	
+// 	test_MplaneUplaneConf();
+// 	test_MplaneAlarms();
+// 	test_MplaneEcpri();
+// 	test_MplaneExternalio();
+// 	test_MplanePerformanceMgmt();
+// 	test_MplaneHardwae();
+// 	test_MplaneFan();
+// 	test_MplaneAntennaCalibration();
+// 	test_MplaneAld();
+// 	test_MplaneSync();
+// 	test_MplaneDelayMgmt();
+// 	test_MplaneModuleCapability();
+// 	test_MplaneSupervision();
+// 	test_MplaneTransceiver();
+// }
 
 YangServices::YangServices()
     : AppServices("YangManagerServerApplicationService") {
@@ -95,7 +95,7 @@ YangServices::YangServices()
   registerServiceInsert(YangMgrService::singleton());
 
   halmplane_init(cfgData->getPath());
-  test_wrapper_of_libhalmplane();
+  // test_wrapper_of_libhalmplane();
 
   // YANG
   eventInfo("RRH get YANG manager server");

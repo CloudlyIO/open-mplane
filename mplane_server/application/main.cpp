@@ -15,9 +15,9 @@
 #include <functional>
 
 #include "Application.h"
-#include "wrapper.h"
-// #include "hal_loader.h"
-#include "test_wrapper.h"
+// #include "wrapper.h"
+// // #include "hal_loader.h"
+// #include "test_wrapper.h"
 
 using namespace Mplane;
 
@@ -32,25 +32,25 @@ void sigintHandler(int signum) {
  * \brief The first start point for the program
  */
 
-void test_wrapper_of_libhalmplane()
-{
-	test_MplaneInterfaces();
-	test_MplaneProcessingElement();	
-	test_MplaneUplaneConf();
-	test_MplaneAlarms();
-	test_MplaneEcpri();
-	test_MplaneExternalio();
-	test_MplanePerformanceMgmt();
-	test_MplaneHardwae();
-	test_MplaneFan();
-	test_MplaneAntennaCalibration();
-	test_MplaneAld();
-	test_MplaneSync();
-	test_MplaneDelayMgmt();
-	test_MplaneModuleCapability();
-	test_MplaneSupervision();
-	test_MplaneTransceiver();
-}
+// void test_wrapper_of_libhalmplane()
+// {
+// 	test_MplaneInterfaces();
+// 	test_MplaneProcessingElement();	
+// 	test_MplaneUplaneConf();
+// 	// test_MplaneAlarms();
+// 	// test_MplaneEcpri();
+// 	// test_MplaneExternalio();
+// 	// test_MplanePerformanceMgmt();
+// 	// test_MplaneHardwae();
+// 	// test_MplaneFan();
+// 	// test_MplaneAntennaCalibration();
+// 	// test_MplaneAld();
+// 	// test_MplaneSync();
+// 	// test_MplaneDelayMgmt();
+// 	// test_MplaneModuleCapability();
+// 	// test_MplaneSupervision();
+// 	// test_MplaneTransceiver();
+// }
 
 int main(int argc, const char** argv)
 {
@@ -65,9 +65,6 @@ int main(int argc, const char** argv)
 	sa.sa_flags = 0;
 	sigaction(SIGINT, &sa, NULL);
 
-	//Initialize the wrapper halmplane
-	wrapper_halmplane_init();
 	// Run the app
-	test_wrapper_of_libhalmplane();
 	return app->run("Mplane O-RAN M-Plane", argc, argv) ;
 }
