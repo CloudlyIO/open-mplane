@@ -7,6 +7,7 @@
 
 #include "MplaneProcessingElements.h"
 #include "ModuleLoader.h"
+#include <iostream> 
 
 halmplane_error_t halmplane_update_ru_element(ru_elements_t* ru_element)
 {
@@ -20,6 +21,7 @@ halmplane_error_t halmplane_update_ru_element(ru_elements_t* ru_element)
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(ru_elements_t*)) fptr)(ru_element);
     }
   return status;

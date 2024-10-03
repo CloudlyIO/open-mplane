@@ -271,6 +271,12 @@ include_directories(yang-manager-server/yang-model-handlers/inc)
 include_directories(yang-manager-server/yang-models/inc)
 include_directories(yang-manager-server/yang-sysrepo/inc)
 
+##testModular
+include_directories(testModular/inc)
+list(APPEND MPLANE_SERVER_SOURCES
+  testModular/src/testModular.cpp
+)
+
 ## application
 list(APPEND MPLANE_SERVER_SOURCES
   application/Application/src/Application.cpp

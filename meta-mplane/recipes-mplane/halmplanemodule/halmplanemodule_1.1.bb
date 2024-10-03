@@ -19,4 +19,6 @@ CONTEXT ?= "YOCTO"
 EXTRA_OECMAKE_append += " -DBUILD_BOARD=${BUILD_BOARD}"
 EXTRA_OECMAKE_append += " -DCONTEXT=${CONTEXT}"
 
+DEPENDS += "libtinyxml2"
+
 PROVIDES += "halmplanemodule"

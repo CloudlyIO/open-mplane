@@ -36,6 +36,8 @@
 
 #include <HalMplane.h>
 
+#include "testModular.h"
+
 using namespace Mplane;
 
 //=============================================================================================================
@@ -81,6 +83,9 @@ YangServices::YangServices()
       halmplane_init(NULL);
     }
 
+    // Run the testCode
+    runTests();
+    
   // YANG
   eventInfo("RRH get YANG manager server");
   std::shared_ptr<YangMgrService> yangService(YangMgrService::singleton());

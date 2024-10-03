@@ -8,6 +8,7 @@
 
 #include "MplaneInterfaces.h"
 #include "ModuleLoader.h"
+#include <iostream> 
 
 halmplane_error_t halmplane_interface_update(interface_t* interface)
 {
@@ -21,6 +22,7 @@ halmplane_error_t halmplane_interface_update(interface_t* interface)
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(interface_t*)) fptr)(interface);
     }
   return status;
@@ -38,6 +40,7 @@ halmplane_error_t halmplane_interface_update_description(const char* name, const
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(const char*, const char*)) fptr)(name, description);
     }
   return status;
@@ -55,6 +58,7 @@ halmplane_error_t halmplane_interface_update_type(const char* name, const char* 
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(const char*, const char*)) fptr)(name, type);
     }
   return status;
@@ -72,6 +76,7 @@ halmplane_error_t halmplane_interface_update_enabled(const char* name, bool enab
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(const char*, bool)) fptr)(name, enabled);
     }
   return status;
@@ -89,6 +94,7 @@ halmplane_error_t halmplane_interface_update_l2_mtu(const char* name, int l2Mtu)
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(const char*, int)) fptr)(name, l2Mtu);
     }
   return status;
@@ -106,6 +112,7 @@ halmplane_error_t halmplane_interface_update_vlan_tagging(const char* name, bool
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(const char*, bool)) fptr)(name, vlanTagging);
     }
   return status;
@@ -123,6 +130,7 @@ halmplane_error_t halmplane_interface_update_base_interface(const char* name, co
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(const char*, const char*)) fptr)(name, baseInterface);
     }
   return status;
@@ -140,6 +148,7 @@ halmplane_error_t halmplane_interface_update_vlan_id(const char* name, int vlanI
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(const char*, int)) fptr)(name, vlanId);
     }
   return status;
@@ -157,6 +166,7 @@ halmplane_error_t halmplane_interface_update_mac_address(const char* name, const
     }
   else
     {
+      std::cout << "modular " << std::flush;
       status = ((halmplane_error_t (*)(const char*, const char*)) fptr)(name, macAddress);
     }  
   return status;

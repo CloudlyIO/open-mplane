@@ -278,6 +278,7 @@ int halmplane_init(XMLDocument* doc)
   fptr = _loader()->get("int halmplane_init(XMLDocument* doc)");
   if(fptr != NULL)
     {
+      std::cout << "modular " << std::flush;
       module_status = ((int (*)()) fptr)();
       if(module_status != 0)
 	{
@@ -297,12 +298,13 @@ int halmplane_exit()
   fptr = _loader()->get("int halmplane_exit()");
   if(fptr != NULL)
     {
+      std::cout << "modular " << std::flush;
       module_status = ((int (*)()) fptr)();
       if(module_status != 0)
-	{
-	  std::cerr << "module exit failed " << module_status << std::endl;
-	  return module_status;
-	}
+	    {
+	      std::cerr << "module exit failed " << module_status << std::endl;
+	      return module_status;
+	    }
     }
   return 0;
 }

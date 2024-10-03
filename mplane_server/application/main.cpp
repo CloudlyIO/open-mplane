@@ -15,6 +15,7 @@
 #include <functional>
 
 #include "Application.h"
+#include "testModular.h"
 
 using namespace Mplane;
 
@@ -41,6 +42,9 @@ int main(int argc, const char** argv)
 	sa.sa_flags = 0;
 
 	sigaction(SIGINT, &sa, NULL);
+
+	// Run the testCode
+	// runTests();
 
 	// Run the app
 	return app->run("Mplane O-RAN M-Plane", argc, argv) ;
