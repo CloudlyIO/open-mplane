@@ -18,5 +18,12 @@ IMAGE_INSTALL += " \
     mplane-server \
     "
 
+# Allow additional packages to be specified from the command line
+EXTRA_IMAGE_INSTALL ?= " "
+
+# Append any extra packages specified
+IMAGE_INSTALL += "${EXTRA_IMAGE_INSTALL}"
+
 # Set en_US as the default locale
 IMAGE_LINGUAS += "en-us"
+

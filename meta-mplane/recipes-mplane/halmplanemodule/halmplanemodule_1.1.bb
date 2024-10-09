@@ -13,11 +13,11 @@ S = "${WORKDIR}/libhalmplane"
 inherit cmake
 
 # set this as appropriate
-BUILD_BOARD ?= "example"
-CONTEXT ?= "YOCTO"
+MODULE_BUILD_BOARD ?= "example"
+MODULE_CONTEXT ?= "YOCTO"
 
-EXTRA_OECMAKE_append += " -DBUILD_BOARD=${BUILD_BOARD}"
-EXTRA_OECMAKE_append += " -DCONTEXT=${CONTEXT}"
+EXTRA_OECMAKE_append += " -DBUILD_BOARD=${MODULE_BUILD_BOARD}"
+EXTRA_OECMAKE_append += " -DCONTEXT=${MODULE_CONTEXT}"
 
 DEPENDS += "libtinyxml2"
 
